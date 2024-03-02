@@ -1,4 +1,4 @@
-export const getStaticURL = () => process.env.NEXT_PUBLIC_STATIC_URL;
+export const getStaticURL = () => "https://dvsk-ui-content.vercel.app";
 export const getStaticScanUrl = () => process.env.NEXT_PUBLIC_SCAN_URL;
 
 export const OptionsLanguage = [
