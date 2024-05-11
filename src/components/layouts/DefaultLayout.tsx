@@ -11,13 +11,11 @@ export const DefaultLayout = ({
   pageTitle,
   containerStyle,
   headerStyle,
-  linkStyle,
 }: {
   children: React.ReactNode;
   pageTitle?: string;
   containerStyle: string;
-  headerStyle?: string;
-  linkStyle?: string;
+  headerStyle?:string
 }) => {
   const handleKeyPress = (event: React.KeyboardEvent<HTMLDivElement>) => {
     if ((event.ctrlKey || event.metaKey) && event.key === "k") {
@@ -32,11 +30,14 @@ export const DefaultLayout = ({
       className={`ease-soft-in-out relative h-full transition-all duration-200 ${containerStyle}`}
     >
       <div className="w-full" onKeyDown={handleKeyPress} tabIndex={50}>
-        <Header headerStyle={headerStyle} linkStyle={linkStyle} />
-        <div className="relative mx-auto min-h-[90vh]  w-full" id="box">
+        <Header  headerStyle={headerStyle} />
+        <div
+          className="relative pt-20 w-full mx-auto max-w-[1504px] min-h-[90vh] pb-4"
+          id="box"
+        >
           {children}
         </div>
-        <Footer />
+        <Footer  />
       </div>
     </main>
   );

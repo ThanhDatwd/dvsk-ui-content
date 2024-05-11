@@ -43,11 +43,11 @@ export const AugmentlabsWalletProvider = ({
   const [walletNetwork, setWalletNetwork] = useState<E_NETWORK_ID>(
     (() => {
       if (typeof window !== "undefined") {
-        // const data = localStorage.getItem(SAVE_CURRENT_NETWORK_KEY);
-        // if (data) {
-        //   const currentChainId = parseInt(data) as unknown as E_NETWORK_ID;
-        //   return currentChainId;
-        // }
+        const data = localStorage.getItem(SAVE_CURRENT_NETWORK_KEY);
+        if (data) {
+          const currentChainId = parseInt(data) as unknown as E_NETWORK_ID;
+          return currentChainId;
+        }
       }
 
       return process.env.NEXT_PUBLIC_DEV

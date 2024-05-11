@@ -1,5 +1,266 @@
-export const getStaticURL = () => "https://dvsk-ui-content.vercel.app";
-export const getStaticScanUrl = () => process.env.NEXT_PUBLIC_SCAN_URL;
+import { DateTime } from "luxon";
+import abiUsdtToken from "@/web3/abi/usdt.json";
+import { convertNumberToFormattedString } from "./converter";
+import { EToken, ITokenOption, TOKENS } from "@/web3/token";
+
+export const getStaticURL = () => process.env.NEXT_PUBLIC_STATIC_URL;
+
+export const vinachainAddress = process.env.NEXT_PUBLIC_VINACHAIN_ADDRESS;
+
+export const exploreVinachainUrl = "";
+
+export const endsInTimer = "December 31, 2023 23:59:59";
+
+export const calculateTimeRemaining = (endsInTimer: string) => {
+  const endTime = DateTime.fromISO(endsInTimer);
+
+  const now = DateTime.local();
+
+  const diff = endTime.diff(now, ["days", "hours", "minutes", "seconds"]);
+
+  const timeRemaining = diff.as("seconds");
+
+  const days = diff.toObject().days;
+  const hours = diff.toObject().hours;
+  const minutes = diff.toObject().minutes;
+  const seconds = diff.toObject().seconds?.toFixed(0);
+
+  return { timeRemaining, days, hours, minutes, seconds };
+};
+
+export enum NETWORK {
+  ETHEREUM = "ethereum",
+  BINANCE = "binance",
+}
+
+export enum Currencies {
+  USC = "USC",
+  USDT = "USDT",
+}
+
+export enum FilterUserHistory {
+  // ALL = "all",
+  DEPOSIT = "deposit",
+  // WITHDRAW = "withdraw",
+}
+export const DEFAULT_AUTOCLOSE_TOAST = 2000;
+
+export enum PathName {
+  DASHBOARD = "/",
+  USERS = "/users",
+  GAMES = "/games",
+  PORTAL_TRANSACTION = "/portal-transaction",
+  GAME_TRANSACTION = "/game-transaction",
+  FEEDBACK = "/feedback",
+  REFERRAL = "/referral",
+}
+export const subLinkReferral = [
+  {
+    label: "referral",
+    link: "/referral",
+  },
+  {
+    label: "referralType",
+    link: "/referral/referral-type",
+  },
+  {
+    label: "referralReward",
+    link: "/referral/referral-reward",
+  },
+];
+
+export const DEFAULT_PAGE_SIZE = 10;
+export const DEFAULT_GAME_PAGE_SIZE = 18;
+export const DEFAULT_PAGE_NUMBER = 0;
+
+export const MINIMUM_TX_CONFIRMATION = 5;
+export const REFECT_CONFIRMATION_BLOCK = 3000;
+
+export const PAGINATION_OPTIONS = [
+  {
+    label: "10",
+    value: "10",
+  },
+  {
+    label: "20",
+    value: "20",
+  },
+  {
+    label: "30",
+    value: "30",
+  },
+  {
+    label: "50",
+    value: "50",
+  },
+];
+
+export enum FilterOfDirection {
+  ALL = "all",
+  IN = "in",
+  OUT = "out",
+}
+
+export enum Direction {
+  IN = "in",
+  OUT = "out",
+}
+
+export enum Network {
+  ETHEREUM = "ethereum",
+  BINANCE = "binance",
+}
+
+export enum Currency {
+  USC_ETH = "usc_eth",
+  USC_BSC = "usc_bsc",
+}
+
+export enum ActionType {
+  DEPOSIT = "deposit",
+  WITHDRAW = "withdraw",
+}
+
+export enum TransferStatus {
+  PENDING_TRANSFER = "pending_transfer",
+  TRANSFERED = "transfered",
+}
+
+export const enum Event {
+  TRANSACTIONS = "transactions",
+  VERIFY = "verify",
+}
+
+export const enum VerifyStatus {
+  NOT_VERIFY = "not_verify",
+  VERIFY_SUCCESS = "verify_success",
+  VERIFY_FAIL = "verify_fail",
+}
+
+export const DEFAULT_LOAD_CARD_AMOUNT = 0;
+
+export const DEFAULT_STRING_SHOW = 20;
+
+export const DefaultPaginationQuery = {
+  sort: "-createdAt",
+  limit: DEFAULT_PAGE_SIZE.toString(),
+  offset: DEFAULT_PAGE_NUMBER.toString(),
+};
+
+export const BLOCKCHAIN_CHAIN: any = {
+  1: "eth",
+  5: "eth",
+  56: "bsc",
+  97: "bsc",
+};
+
+export enum TRANSACTION_DOMAIN {
+  PORTAL = "portal",
+  INTEGRATION = "integration",
+  PARTNER = "partner",
+}
+
+export const OptionsAction = [
+  {
+    label: "all",
+    value: "",
+  },
+  {
+    label: "deposit",
+    value: "deposit",
+  },
+  {
+    label: "withdraw",
+    value: "withdraw",
+  },
+  {
+    label: "referral",
+    value: "referral",
+  },
+  {
+    label: "gameDeposit",
+    value: "topup_to_integration",
+  },
+  {
+    label: "gameWithdraw",
+    value: "cashout_from_integration",
+  },
+  {
+    label: "fee",
+    value: "fee",
+  },
+  {
+    label: "fundTransfer",
+    value: "fund_transfer",
+  },
+  {
+    label: "betPlaced",
+    value: "bet_placed",
+  },
+  {
+    label: "betSettled",
+    value: "bet_settled",
+  },
+  {
+    label: "betRollback",
+    value: "bet_rollback",
+  },
+];
+
+export const OptionsDirection = [
+  {
+    label: "all",
+    value: "all",
+  },
+  {
+    label: "in",
+    value: "in",
+  },
+  {
+    label: "out",
+    value: "out",
+  },
+];
+
+export const OptionsSearchUserBy = [
+  { label: "Username", value: "username" },
+  { label: "Full name", value: "fullname" },
+];
+export const OptionsSearchPostBy = [{ label: "Tag", value: "tag" }];
+export const OptionsFeedbackSearchBy = [
+  { label: "Feedback Title", value: "title" },
+  { label: "Email", value: "email" },
+  { label: "Phone Number", value: "phoneNumber" },
+];
+
+export const OptionsSearchByForReferral = [
+  { label: "code", value: "code" },
+  { label: "ownerEmail", value: "ownerEmail" },
+];
+
+export const OptionsSearchByForReferralType = [
+  { label: "refCode", value: "refCode" },
+  { label: "ownerEmail", value: "ownerEmail" },
+];
+
+export const OptionsSearchByForReferralReward = [
+  { label: "referralName", value: "name" },
+];
+
+export const OptionsStatus = [
+  {
+    label: "Submitted",
+    value: "submitted",
+  },
+  {
+    label: "Solved",
+    value: "solved",
+  },
+  {
+    label: "Rejected",
+    value: "rejected",
+  },
+];
 
 export const OptionsLanguage = [
   {
@@ -7,21 +268,266 @@ export const OptionsLanguage = [
     value: "en",
   },
   {
+    label: "简体中文",
+    value: "cn",
+  },
+  {
     label: "VietNam",
     value: "vi",
   },
 ];
-export const FooterData = [
+
+export enum THEME {
+  LIGHT = "light",
+  DARK = "dark",
+}
+
+export const DEFAULT_DATE_RANGE = 1;
+
+export const MAX_INTEGRATION_NAME_LENGTH = 20;
+
+export const FIXED_VALUE = 5;
+export const MAX_FEEDBACK_IMAGE = 5;
+
+export const ALI_CLOUD_ACCESS_CREDENTIAL = "ali_oss_credentials";
+export const ALI_CREDENTIALS_TIMEOUT_IN_MILI_SECONDS = 900000; //15 minutes
+export const debounce = (fn: Function, delay: number) => {
+  let timer: any;
+  return function (...args: any) {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      fn(...args);
+    }, delay);
+  };
+};
+
+const VinachainData = [
   {
-    page: "about",
-    title: "title",
-    itemFooter: [
+    page: "vinaChain",
+    footerItemKey: "useVina",
+    footerItemValue: "title",
+    footerList: [
       {
-        label: "whitePaperEN",
+        label: "findWallet",
         link: "/coming-soon",
       },
       {
-        label: "whitePaperTaiwan",
+        label: "getUSDv",
+        link: "/coming-soon",
+      },
+      {
+        label: "dapps",
+        link: "/coming-soon",
+      },
+      {
+        label: "layer2",
+        link: "/coming-soon",
+      },
+      {
+        label: "runANode",
+        link: "/coming-soon",
+      },
+      {
+        label: "stableCoins",
+        link: "/coming-soon",
+      },
+      {
+        label: "skate",
+        link: "/coming-soon",
+      },
+    ],
+  },
+  {
+    page: "vinaChain",
+    footerItemKey: "learn",
+    footerItemValue: "title",
+    footerList: [
+      {
+        label: "learnHub",
+        link: "/coming-soon",
+      },
+      {
+        label: "whatIsUSDv",
+        link: "/coming-soon",
+      },
+      {
+        label: "uSDvWallets",
+        link: "/coming-soon",
+      },
+      {
+        label: "layer2",
+        link: "/coming-soon",
+      },
+      {
+        label: "gasFees",
+        link: "/coming-soon",
+      },
+      {
+        label: "uSDvSecurityAndScamPrevention",
+        link: "/coming-soon",
+      },
+      {
+        label: "whatIsWeb3",
+        link: "/coming-soon",
+      },
+      {
+        label: "smartConstracts",
+        link: "/coming-soon",
+      },
+      {
+        label: "uSDvEnergyConsumption",
+        link: "/coming-soon",
+      },
+      {
+        label: "uSDvRoadmap",
+        link: "/coming-soon",
+      },
+      {
+        label: "uSDvImprovementProposals",
+        link: "/coming-soon",
+      },
+      {
+        label: "historyOfUSDv",
+        link: "/coming-soon",
+      },
+      {
+        label: "uSDvWallpaper",
+        link: "/coming-soon",
+      },
+      {
+        label: "uSDvGlossary",
+        link: "/coming-soon",
+      },
+      {
+        label: "uSDvGovernance",
+        link: "/coming-soon",
+      },
+      {
+        label: "blockchainBridges",
+        link: "/coming-soon",
+      },
+      {
+        label: "zeroKnowledgeProofs",
+        link: "/coming-soon",
+      },
+      {
+        label: "quizHub",
+        link: "/coming-soon",
+      },
+    ],
+  },
+  {
+    page: "vinaChain",
+    footerItemKey: "developers",
+    footerItemValue: "title",
+    footerList: [
+      {
+        label: "getStarted",
+        link: "/coming-soon",
+      },
+      {
+        label: "documentation",
+        link: "/coming-soon",
+      },
+      {
+        label: "tutorials",
+        link: "/coming-soon",
+      },
+      {
+        label: "learnByConding",
+        link: "/coming-soon",
+      },
+      {
+        label: "setUpLocalEnviroment",
+        link: "/coming-soon",
+      },
+    ],
+  },
+  {
+    page: "vinaChain",
+    footerItemKey: "ecosystem",
+    footerItemValue: "title",
+    footerList: [
+      {
+        label: "communityHub",
+        link: "/coming-soon",
+      },
+      {
+        label: "uSDvFoundation",
+        link: "/coming-soon",
+      },
+      {
+        label: "uSDvFoundationBlog",
+        link: "/coming-soon",
+      },
+      {
+        label: "uSDvBugBountyProgram",
+        link: "/coming-soon",
+      },
+      {
+        label: "ecosystemGrantProgram",
+        link: "/coming-soon",
+      },
+      {
+        label: "uSDvBrandAssets",
+        link: "/coming-soon",
+      },
+      {
+        label: "devCon",
+        link: "/coming-soon",
+      },
+    ],
+  },
+  {
+    page: "vinaChain",
+    footerItemKey: "enterprise",
+    footerItemValue: "title",
+    footerList: [
+      {
+        label: "mainnetUSDv",
+        link: "/coming-soon",
+      },
+      {
+        label: "privateUSDv",
+        link: "/coming-soon",
+      },
+      {
+        label: "enterprise",
+        link: "/coming-soon",
+      },
+    ],
+  },
+  {
+    page: "vinaChain",
+    footerItemKey: "about",
+    footerItemValue: "title",
+    footerList: [
+      {
+        label: "aboutUs",
+        link: "/coming-soon",
+      },
+      {
+        label: "jobs",
+        link: "/coming-soon",
+      },
+      {
+        label: "contributing",
+        link: "/coming-soon",
+      },
+      {
+        label: "languageSupport",
+        link: "/coming-soon",
+      },
+      {
+        label: "privacyPolicy",
+        link: "/coming-soon",
+      },
+      {
+        label: "termOfUse",
+        link: "/coming-soon",
+      },
+      {
+        label: "cookiePolicy",
         link: "/coming-soon",
       },
       {
@@ -31,30 +537,445 @@ export const FooterData = [
     ],
   },
   {
-    page: "fAQ",
-    title: "title",
-    itemFooter: [
+    page: "vinaChain",
+    footerItemKey: "community",
+    footerItemValue: "title",
+    footerList: [
       {
-        label: "feedback",
+        label: "communityHub",
         link: "/coming-soon",
       },
       {
-        label: "termsAndConditions",
+        label: "onlineCommunities",
+        link: "/coming-soon",
+      },
+      {
+        label: "uSDTevents",
+        link: "/coming-soon",
+      },
+      {
+        label: "getInvolved",
+        link: "/coming-soon",
+      },
+      {
+        label: "openResearch",
+        link: "/coming-soon",
+      },
+      {
+        label: "grants",
+        link: "/coming-soon",
+      },
+      {
+        label: "uSDTSupport",
+        link: "/coming-soon",
+      },
+      {
+        label: "languageResources",
+        link: "/coming-soon",
+      },
+    ],
+  },
+];
+
+export const VinachainHeader = VinachainData.filter(
+  (item, index) => item.footerItemKey !== "about",
+);
+export const VinachainFooter = VinachainData.filter(
+  (item, index) => item.footerItemKey !== "community",
+);
+
+export const VinaScanData = [
+  {
+    page: "vinaScan",
+    footerItemKey: "blockchain",
+    footerItemValue: "title",
+    footerList: [
+      {
+        label: "transactions",
+        link: "/coming-soon",
+      },
+      {
+        label: "pendingTransactions",
+        link: "/coming-soon",
+      },
+      {
+        label: "contractInternalTransactions",
+        link: "/coming-soon",
+      },
+      {
+        label: "beaconDeposits",
+        link: "/coming-soon",
+      },
+      {
+        label: "beaconWithdrawals",
+        link: "/coming-soon",
+      },
+      {
+        label: "stablecoins",
+        link: "/coming-soon",
+      },
+      {
+        label: "skateVNC",
         link: "/coming-soon",
       },
     ],
   },
   {
-    page: "social",
-    title: "title",
-    itemFooter: [],
+    page: "vinaScan",
+    footerItemKey: "tokens",
+    footerItemValue: "title",
+    footerList: [
+      {
+        label: "topTokens",
+        link: "/coming-soon",
+      },
+      {
+        label: "tokensTransfer",
+        link: "/coming-soon",
+      },
+    ],
+  },
+  {
+    page: "vinaScan",
+    footerItemKey: "nFTs",
+    footerItemValue: "title",
+    footerList: [
+      {
+        label: "topNFTs",
+        link: "/coming-soon",
+      },
+      {
+        label: "topMints",
+        link: "/coming-soon",
+      },
+      {
+        label: "lastedTrades",
+        link: "/coming-soon",
+      },
+      {
+        label: "lastedTransfer",
+        link: "/coming-soon",
+      },
+      {
+        label: "lastedMints",
+        link: "/coming-soon",
+      },
+    ],
+  },
+  {
+    page: "vinaScan",
+    footerItemKey: "resources",
+    footerItemValue: "title",
+    footerList: [
+      {
+        label: "chartsAndStats",
+        link: "/coming-soon",
+      },
+      {
+        label: "topStatistics",
+        link: "/coming-soon",
+      },
+      {
+        label: "leaderboard",
+        link: "/coming-soon",
+      },
+      {
+        label: "directory",
+        link: "/coming-soon",
+      },
+      {
+        label: "newsletter",
+        link: "/coming-soon",
+      },
+      {
+        label: "knowledgeBase",
+        link: "/coming-soon",
+      },
+    ],
+  },
+  {
+    page: "vinaScan",
+    footerItemKey: "developers",
+    footerItemValue: "title",
+    footerList: [
+      {
+        label: "aPIPlans",
+        link: "/coming-soon",
+      },
+      {
+        label: "aPIDocumentation",
+        link: "/coming-soon",
+      },
+      {
+        label: "codeReader",
+        link: "/coming-soon",
+      },
+      {
+        label: "verifyContract",
+        link: "/coming-soon",
+      },
+      {
+        label: "similarContractSearch",
+        link: "/coming-soon",
+      },
+      {
+        label: "smartContractSearch",
+        link: "/coming-soon",
+      },
+      {
+        label: "contractDiffChecker",
+        link: "/coming-soon",
+      },
+      {
+        label: "vyperOnlineCompiler",
+        link: "/coming-soon",
+      },
+      {
+        label: "bytecodeToOpcode",
+        link: "/coming-soon",
+      },
+      {
+        label: "broadcastTransaction",
+        link: "/coming-soon",
+      },
+    ],
   },
 ];
-export enum THEME {
-  LIGHT = "light",
-  DARK = "dark",
-}
-export const DEFAULT_AUTOCLOSE_TOAST = 2000;
+export const VinaScanHeader = [...VinaScanData];
+export const VinaScanFooter = VinaScanData.filter(
+  (item, index) => item.footerItemKey !== "more",
+);
+
+export const Developers = [
+  {
+    label: "getStarted",
+    link: "/coming-soon",
+  },
+  {
+    label: "documentation",
+    link: "/coming-soon",
+  },
+  {
+    label: "tutorials",
+    link: "/coming-soon",
+  },
+  {
+    label: "learnByConding",
+    link: "/coming-soon",
+  },
+  {
+    label: "setUpLocalEnviroment",
+    link: "/coming-soon",
+  },
+];
+
+export const Ecosystem = [
+  {
+    label: "communityHub",
+    link: "/coming-soon",
+  },
+  {
+    label: "uSDvFoundation",
+    link: "/coming-soon",
+  },
+  {
+    label: "uSDvFoundationBlog",
+    link: "/coming-soon",
+  },
+  {
+    label: "uSDvBugBountyProgram",
+    link: "/coming-soon",
+  },
+  {
+    label: "ecosystemGrantProgram",
+    link: "/coming-soon",
+  },
+  {
+    label: "uSDvBrandAssets",
+    link: "/coming-soon",
+  },
+  {
+    label: "devCon",
+    link: "/coming-soon",
+  },
+];
+
+export const Enterprise = [
+  {
+    label: "mainnetUSDv",
+    link: "/coming-soon",
+  },
+  {
+    label: "privateUSDv",
+    link: "/coming-soon",
+  },
+  {
+    label: "enterprise",
+    link: "/coming-soon",
+  },
+];
+
+export const About = [
+  {
+    label: "aboutUs",
+    link: "/coming-soon",
+  },
+  {
+    label: "jobs",
+    link: "/coming-soon",
+  },
+  {
+    label: "contributing",
+    link: "/coming-soon",
+  },
+  {
+    label: "languageSupport",
+    link: "/coming-soon",
+  },
+  {
+    label: "privacyPolicy",
+    link: "/coming-soon",
+  },
+  {
+    label: "termOfUse",
+    link: "/coming-soon",
+  },
+  {
+    label: "cookiePolicy",
+    link: "/coming-soon",
+  },
+  {
+    label: "contact",
+    link: "/coming-soon",
+  },
+];
+
+export const Community = [
+  {
+    label: "communityHub",
+    link: "/coming-soon",
+  },
+  {
+    label: "onlineCommunities",
+    link: "/coming-soon",
+  },
+  {
+    label: "uSDTevents",
+    link: "/coming-soon",
+  },
+  {
+    label: "getInvolved",
+    link: "/coming-soon",
+  },
+  {
+    label: "openResearch",
+    link: "/coming-soon",
+  },
+  {
+    label: "grants",
+    link: "/coming-soon",
+  },
+  {
+    label: "uSDTSupport",
+    link: "/coming-soon",
+  },
+  {
+    label: "languageResources",
+    link: "/coming-soon",
+  },
+];
+export const ADDRESS_NULL = "0x0000000000000000000000000000000000000000";
+
+export const HardCap = 2000000;
+export const SoftCap = 1000000;
+export const StartDate = "18/12/2023";
+export const EndDate = "18/12/2023";
+export const DateRange = 90;
+export const Rate = 0.00018;
+export const ListRate = 0.0018;
+export const Unlock = "100%";
+export const TotalSupply = "N/A";
+export const InitialSupply = convertNumberToFormattedString(
+  String(Rate * HardCap),
+);
+
+export const PoolDetailsSectionData = [
+  {
+    label: "hardCap",
+    value: convertNumberToFormattedString(String(HardCap)),
+  },
+  {
+    label: "softCap",
+    value: convertNumberToFormattedString(String(SoftCap)),
+  },
+  {
+    label: "startDay",
+    value: DateTime.fromFormat(StartDate, "dd/MM/yyyy").toFormat(
+      "LLL dd, yyyy",
+    ),
+  },
+  {
+    label: "endDay",
+    value: DateTime.fromFormat(StartDate, "dd/MM/yyyy")
+      .plus({ days: DateRange })
+      .toFormat("LLL dd, yyyy"),
+  },
+  {
+    label: "rate",
+    value: `1 VNDT = $${Rate}`,
+  },
+  {
+    label: "listRate",
+    value: `1 VNDT = $${ListRate}`,
+  },
+  {
+    label: "unlock",
+    value: Unlock,
+  },
+];
+
+export const TokenSectionData = [
+  {
+    label: "token",
+    value: "Vina Token",
+  },
+  {
+    label: "ticker",
+    value: "$USDT",
+  },
+  {
+    label: "totalSupply",
+    value: TotalSupply,
+  },
+  {
+    label: "initialSupply",
+    value: InitialSupply,
+  },
+  {
+    label: "tokenForSale",
+    value: "",
+  },
+  {
+    label: "listing",
+    value: "",
+  },
+  {
+    label: "address",
+    value: vinachainAddress,
+    isCopyable: true,
+    short: true,
+  },
+];
+
+export const TokenOptions: ITokenOption[] = [
+  {
+    name: TOKENS.USDT.name,
+    value: EToken.USDT,
+    image: `${getStaticURL()}/assets/images/liquidity/${TOKENS.USDT.image}`,
+    abi: abiUsdtToken,
+    address: "",
+  },
+];
 
 export const optionFilterScan = [
   {
@@ -82,545 +1003,3 @@ export const optionFilterScan = [
     value: "websites",
   },
 ];
-
-export const character = [
-  {
-    name: "Trần Hưng Đạo",
-    star: 5,
-  },
-  {
-    name: "Trần Hưng Đạo",
-    star: 5,
-  },
-  {
-    name: "Trần Hưng Đạo",
-    star: 5,
-  },
-  {
-    name: "Trần Hưng Đạo",
-    star: 5,
-  },
-  {
-    name: "Trần Hưng Đạo",
-    star: 5,
-  },
-  {
-    name: "Trần Hưng Đạo",
-    star: 5,
-  },
-  {
-    name: "Trần Hưng Đạo",
-    star: 5,
-  },
-  {
-    name: "Trần Hưng Đạo",
-    star: 5,
-  },
-];
-
-export const listCharacter = [
-  {
-    name: "Trần Khánh Dư",
-    url: `TranKhanhDu.png`,
-    rate: 4,
-    slug: "tran-khanh-du",
-    scale: 0.017,
-    value: "TranKhanhDu",
-    introduces: [
-      `Là người văn võ song toàn đường gươm của ông được ví như “tuyết rơi, hoa nở” có thể xông vào đám quân cả ngàn người như vào chỗ không người. `,
-      `Trần Khánh Dư tiếp tục có công lớn trong hai lần chống quân Nguyên tiếp theo, đặc biệt là đánh tan đạo binh thuyền chở lương thực, khí giới của do Trương Văn Hổ chỉ huy vào tháng 12/1287, làm xoay chuyển tình thế chiến cuộc, dẫn đến thắng lợi cuối cùng, đuổi sạch bóng giặc Nguyên Mông ra khỏi bờ cõi Đại Việt vào năm 1288. `,
-      `Đến tháng 5/1312, ông còn theo vua Trần Anh Tông đem quân đi đánh Chiêm Thành, bắt được cả chúa Chiêm Thành là Chế Chí đưa về nước.`,
-    ],
-    dataSet: [6, 3, 1, 5, 1],
-  },
-  {
-    name: "Phạm Ngũ Lão",
-    url: `PhamNguLao.png`,
-    rate: 4,
-    slug: "pham-ngu-lao",
-    scale: 0.06,
-    value: "PhamNguLao",
-    introduces: [
-      `Ông nổi tiếng là người thông minh, văn võ toàn tài bậc nhất, có chí lớn và đạo đức cao`,
-      `Dù xuất thân bình dân, nhưng đã trở thành Điện úy Thượng tướng quân, uy danh đức vọng rất lớn, được sánh ngang với Hưng Đạo vương và được hưởng ân điển đặc biệt của triều Trần.`,
-      `Cuộc đời và sự nghiệp của Phạm Ngũ Lão đã trở thành huyền thoại lớn trong lịch sử dân tộc,minh chứng cho tư tưởng và nghệ thuật quân sự nhân dân thời Trần. Tài năng xuất chúng đã khiến ông, dù không phải vương hầu, nhưng đều được các triều vua Trần nể trọng.`,
-    ],
-    dataSet: [5, 3, 2, 5, 6],
-  },
-  {
-    name: "Trần Quốc Toản",
-    url: `TranQuocToan.png`,
-    rate: 3,
-    slug: "tran-quoc-toan",
-    scale: 0.03,
-    value: "",
-    introduces: [
-      `Tướng tài với sáu chữ vàng "Phá cường địch,  báo hoàng ân" Vị tướng trẻ tuổi mang trong mình lòng yêu nước, lòng quả cảm và ý chí kiên cường`,
-      `Trần Quốc Toản với giai thoại nổi tiếng "bóp nát quả cam" tại hội nghị Bình Than do trẻ tuổi không được tham gia để bàn việc quân. Không nản lòng Trần Quốc Toản đã tự tập hợp binh lính, rèn luyện binh khí đứng lên khởi nghĩa chống giặc ngoại xâm.`,
-      `Sau với ý chí kiên cường ông được phong tước Hầu Văn Vương và sát nhập binh lính cùng tham gia khởi nghĩa.`,
-    ],
-    dataSet: [7, 2, 3, 5, 4],
-  },
-  {
-    name: "Trần Thủ Độ",
-    url: `TranThuDo.png`,
-    rate: 5,
-    slug: "tran-thu-do",
-    scale: 0.03,
-    value: "",
-    introduces: [
-      `Ông nổi tiếng là người thông minh, văn võ toàn tài bậc nhất, có chí lớn và đạo đức cao, nên dù xuất thân bình dân, nhưng đã trở thành Điện úy Thượng tướng quân,uy danh đức vọng rất lớn, được sánh ngang với Hưng Đạo vương và được hưởng ân điển đặc biệt của triều Trần.`,
-      `Cuộc đời và sự nghiệp của Phạm Ngũ Lão đã trở thành huyền thoại lớn trong lịch sử dân tộc, minh chứng cho tư tưởng và nghệ thuật quân sự nhân dân thời Trần. Tài năng xuất chúng đã khiến ông, dù không phải vương hầu, nhưng đều được các triều vua Trần nể trọng.`,
-    ],
-    dataSet: [4, 3, 3, 5, 2],
-  },
-  {
-    name: "Dã Tượng",
-    url: `DaTuong.png`,
-    rate: 4,
-    slug: "da-tuong",
-    scale: 0.03,
-    value: "",
-    introduces: [
-      `Ông có biệt tài thuần hóa tượng rừng (dã tượng) và chỉ huy đội tượng binh vô cùng tài giỏi, được phong làm "tiết chế binh nhung" Dã Tượng là bậc gia tướng chẳng những giỏi về chiến đấu, mà còn biết đặt lợi ích dân tộc lên trên hết, xem nhẹ bổng lộc triều đình phe phái ban cho.`,
-      `Không chỉ có tài dùng binh, Dã Tượng còn là người rất trung nghĩa. Ông đã một lòng trung thành và dám đưa ra lời khuyên Hưng Đạo vương nên bỏ mối thù nhà để toàn tâm dốc sức cứu nước.`,
-    ],
-    dataSet: [2, 3, 1, 5, 4],
-  },
-  {
-    name: "Trương Công Hoằng",
-    url: `TruongCongHoang.png`,
-    rate: 4,
-    slug: "truong-cong-hoang",
-    scale: 0.03,
-    value: "",
-    introduces: [
-      `Công Hoằng là Trung Hoa tể kiêm Quản long hưng phù Đại tướng Là vị tướng đã giúp ích rất lớn trong công cuộc chống Mông - Nguyên Ông có một người em song sinh nữ là Trương Thị Mỹ Nương. `,
-      `Làng Vô Hối thờ người em Trương Thị Mỹ Nương; làng An Lạc thờ người anh Trương Công Hoằng.`,
-    ],
-    dataSet: [3, 7, 3, 2, 4],
-  },
-
-  {
-    name: "Trần Nhật Duật",
-    url: `TranNhatDuat.png`,
-    rate: 5,
-    slug: "tran-nhat-duat",
-    scale: 0.03,
-    value: "",
-    introduces: [
-      `Chiêu Văn Vương Trần Nhật Duật là con thứ sáu của vua Trần Thái Tông, tuy là vương tử nhưng đời sống rất xuề xòa, phóng khoáng, dễ tiếp xúc và không câu nệ.`,
-      `Ông còn là một nhà nghệ sĩ giỏi và rất say mê âm nhạc, đã sáng tác rất nhiều khúc nhạc, lời ca, điệu múa. Trần Nhật Duật xứng đáng là danh nhân Việt Nam, văn võ toàn tài, có thể được xem là ông tổ của ngành ngoại giao Việt Nam. `,
-      `Tuy làm đến chức tể tướng và thái sư nhưng không bao giờ tham lam quyền lực bởi vì sống trong lòng ông là một tinh thần nghệ sĩ độ lượng trong nét khảng khái và nhân hòa.`,
-    ],
-    dataSet: [2, 3, 1, 5, 2],
-  },
-  {
-    name: "Trần Quang Khải",
-    url: `TranQuangKhai.png`,
-    rate: 4,
-    slug: "tran-quang-khai",
-    scale: 0.03,
-    value: "",
-    introduces: [
-      `Trần Quang Khải vốn có tư chất thông minh, ham học, lại có được Bảng nhãn Lê Văn Hưu làm thầy, nên ông sớm trở thành nhân vật văn võ toàn tài. Không chỉ trực tiếp cầm binh ra trận, toàn thắng nhiều trận đánh lớn. Ông được biết đến nhiều với cương vị một nhà chính trị gia kiệt xuất, với nghệ thuật ứng xử mềm dẻo, khôn khéo nhiều lần giúp nhà Trần giữ vững non sông mà không không gây hiềm khích.`,
-      `Trần Quang Khải còn được biết đến là một nhà thơ đặc sắc, có vị trí trong việc nghiên cứu lịch sử tiến trình văn học Việt Nam `,
-    ],
-    dataSet: [5, 3, 1, 2, 4],
-  },
-  {
-    name: "Trần Thị Dung",
-    url: `TranThiDung.png`,
-    rate: 3,
-    slug: "tran-thi-dung",
-    scale: 0.03,
-    value: "",
-    introduces: [
-      `Linh từ Quốc mẫu Trần Thị Dung là người con gái thông minh, tài ba, gan dạ và có chí lớn, có đầu óc tổ chức phi thường.`,
-      `Theo sử cũ, khi Trần Thủ Độ chưa xuất hiện, bà là người cáng đáng toàn bộ sự vất vả gian truân, trầm luân để mở nghiệp nhà Trần. Đến lúc có Trần Thủ Độ trong cung đình, bà đã cộng tác đắc lực với Trần Thủ Độ trong việc khai sinh và xây dựng triều đại nhà Trần, đáp ứng được đòi hỏi xây dựng một đất nước vững mạnh để chống giặc Nguyên - Mông đang lăm le xâm lược Đại Việt.`,
-    ],
-    dataSet: [4, 2, 3, 6, 1],
-  },
-  {
-    name: "Công Chúa An Tư",
-    url: `CongChuaAnTu.png`,
-    rate: 4,
-    slug: "cong-chua-an-tu",
-    scale: 0.0065,
-    value: "CongChuaAnTu",
-    introduces: [
-      `Vì nước, vì dân, công chúa An Tư tuy còn rất trẻ đã từ bỏ cuộc sống nhung lụa trong cung đình, hy sinh thân gái để gánh vác vận mệnh của giang sơn`,
-      ` An Tư đã vào trận chiến chỉ có một mình, không một tấc sắt trong tay. Bà hiểu rõ đất nước đang lâm nguy, bản thân không có sự lựa chọn nào khác, công chúa chấp nhận gian khổ, tủi nhục và cái chết để đổi lấy sự bình yên cho Tổ quốc.`,
-    ],
-    dataSet: [2, 3, 5, 3, 2],
-  },
-  {
-    name: "Trần Hưng Đạo",
-    url: `TranHungDao.png`,
-    rate: 5,
-    slug: "tran-hung-dao",
-    scale: 0.03,
-    value: "",
-    introduces: [
-      "Mệnh danh “Bình Bắc Đại Nguyên Soái”, là nhà quân sự thiên tài, nhà chính trị vẹn toàn tài đức",
-      "Ông nổi tiếng với học vấn rất uyên bác, vừa giỏi văn chương vừa hiểu thấu lục thao tam lược, cưỡi ngựa, bắn cung đều thành thạo",
-      "Ba lần cầm quân phá tan quân Nguyên Mông xâm lược nước ta.",
-      "Bên cạnh tư tưởng quân sự kiệt xuất, Trần Quốc Tuấn còn nêu một tấm gương về lòng trung nghĩa sáng suốt, biết gạt bỏ mọi hiềm khích riêng để đoàn kết các tôn thất và tướng tá trong triều nhằm phò vua giúp nước, đánh bại kẻ thù.",
-    ],
-    dataSet: [7, 3, 3, 5, 4],
-  },
-];
-
-export const launchInfo = [
-  {
-    quater: 2024,
-    data: [
-      {
-        title: "quarter1",
-        infos: ["quarter1Introduce", "quarter1OpenBeta", "quarter1Launch"],
-      },
-      {
-        title: "quarter2",
-        infos: ["quarter2Launch", "quarter2Function"],
-      },
-      {
-        title: "quarter3",
-        infos: ["quarter3Introduce", "quarter3OpenBeta", "quarter3Launch"],
-      },
-      {
-        title: "quarter4",
-        infos: ["quarter4Introduce", "quarter4OpenBeta", "quarter4Launch"],
-      },
-    ],
-  },
-  {
-    quater: 2025,
-    data: [
-      {
-        title: "quarter1",
-        infos: ["quarter1Introduce", "quarter1OpenBeta", "quarter1Launch"],
-      },
-      {
-        title: "quarter2",
-        infos: ["quarter2Launch", "quarter2Function"],
-      },
-      {
-        title: "quarter3",
-        infos: ["quarter3Introduce", "quarter3OpenBeta", "quarter3Launch"],
-      },
-      {
-        title: "quarter4",
-        infos: ["quarter4Introduce", "quarter4OpenBeta", "quarter4Launch"],
-      },
-    ],
-  },
-  {
-    quater: 2026,
-    data: [
-      {
-        title: "quarter1",
-        infos: ["quarter1Introduce", "quarter1OpenBeta", "quarter1Launch"],
-      },
-      {
-        title: "quarter2",
-        infos: ["quarter2Launch", "quarter2Function"],
-      },
-      {
-        title: "quarter3",
-        infos: ["quarter3Introduce", "quarter3OpenBeta", "quarter3Launch"],
-      },
-      {
-        title: "quarter4",
-        infos: ["quarter4Introduce", "quarter4OpenBeta", "quarter4Launch"],
-      },
-    ],
-  },
-  {
-    quater: 2027,
-    data: [
-      {
-        title: "quarter1",
-        infos: ["quarter1Introduce", "quarter1OpenBeta", "quarter1Launch"],
-      },
-      {
-        title: "quarter2",
-        infos: ["quarter2Launch", "quarter2Function"],
-      },
-      {
-        title: "quarter3",
-        infos: ["quarter3Introduce", "quarter3OpenBeta", "quarter3Launch"],
-      },
-      {
-        title: "quarter4",
-        infos: ["quarter4Introduce", "quarter4OpenBeta", "quarter4Launch"],
-      },
-    ],
-  },
-];
-
-export const teamInfo = [
-  {
-    bannerUrl: `${getStaticURL()}/assets/images/memberImage.svg`,
-    avatarUrl: `${getStaticURL()}/assets/images/memberDevelopmentImage.svg`,
-    name: "Nguyễn Văn Phi",
-    position: "CEO - XBox Studio",
-    infoMore: {
-      info1: "Thông tin 1: xyz",
-      info2: "Thông tin 2: xyz",
-      info3: "Thông tin 3: xyz",
-    },
-  },
-  {
-    bannerUrl: `${getStaticURL()}/assets/images/memberImage.svg`,
-    avatarUrl: `${getStaticURL()}/assets/images/memberDevelopmentImage.svg`,
-    name: "Nguyễn Văn Phi",
-    position: "Employee",
-    infoMore: {
-      info1: "Thông tin 1: xyz",
-      info2: "Thông tin 2: xyz",
-      info3: "Thông tin 3: xyz",
-    },
-  },
-  {
-    bannerUrl: `${getStaticURL()}/assets/images/memberImage.svg`,
-    avatarUrl: `${getStaticURL()}/assets/images/memberDevelopmentImage.svg`,
-    name: "Nguyễn Văn Phi",
-    position: "Employee",
-    infoMore: {
-      info1: "Thông tin 1: xyz",
-      info2: "Thông tin 2: xyz",
-      info3: "Thông tin 3: xyz",
-    },
-  },
-  {
-    bannerUrl: `${getStaticURL()}/assets/images/memberImage.svg`,
-    avatarUrl: `${getStaticURL()}/assets/images/memberDevelopmentImage.svg`,
-    name: "Nguyễn Văn Phi",
-    position: "Employee",
-    infoMore: {
-      info1: "Thông tin 1: xyz",
-      info2: "Thông tin 2: xyz",
-      info3: "Thông tin 3: xyz",
-    },
-  },
-  {
-    bannerUrl: `${getStaticURL()}/assets/images/memberImage.svg`,
-    avatarUrl: `${getStaticURL()}/assets/images/memberDevelopmentImage.svg`,
-    name: "Nguyễn Văn Phi",
-    position: "Employee",
-    infoMore: {
-      info1: "Thông tin 1: xyz",
-      info2: "Thông tin 2: xyz",
-      info3: "Thông tin 3: xyz",
-    },
-  },
-  {
-    bannerUrl: `${getStaticURL()}/assets/images/memberImage.svg`,
-    avatarUrl: `${getStaticURL()}/assets/images/memberDevelopmentImage.svg`,
-    name: "Nguyễn Văn Phi",
-    position: "Employee",
-    infoMore: {
-      info1: "Thông tin 1: xyz",
-      info2: "Thông tin 2: xyz",
-      info3: "Thông tin 3: xyz",
-    },
-  },
-  {
-    bannerUrl: `${getStaticURL()}/assets/images/memberImage.svg`,
-    avatarUrl: `${getStaticURL()}/assets/images/memberDevelopmentImage.svg`,
-    name: "Nguyễn Văn Phi",
-    position: "Employee",
-    infoMore: {
-      info1: "Thông tin 1: xyz",
-      info2: "Thông tin 2: xyz",
-      info3: "Thông tin 3: xyz",
-    },
-  },
-  {
-    bannerUrl: `${getStaticURL()}/assets/images/memberImage.svg`,
-    avatarUrl: `${getStaticURL()}/assets/images/memberDevelopmentImage.svg`,
-    name: "Nguyễn Văn Phi",
-    position: "Employee",
-    infoMore: {
-      info1: "Thông tin 1: xyz",
-      info2: "Thông tin 2: xyz",
-      info3: "Thông tin 3: xyz",
-    },
-  },
-];
-
-export const partnerData = [
-  {
-    title: "partner1",
-    content: "partnerContent",
-  },
-  {
-    title: "partner2",
-    content: "partnerContent",
-  },
-  {
-    title: "partner3",
-    content: "partnerContent",
-  },
-  {
-    title: "partner4",
-    content: "partnerContent",
-  },
-];
-
-export const timerData = [2024, 2025, 2026, 2027];
-export const tabs = ["news", "event", "community"];
-export const AVAILABLE_GIFTBOXES = 100;
-
-export const tabContentList = [
-  {
-    tabName: "news",
-    article: [
-      {
-        title: "notiOne",
-        date: "25/06/2023",
-        hot: true,
-      },
-      {
-        title: "notiTwo",
-        date: "25/04/2023",
-        hot: true,
-      },
-      {
-        title: "notiThree",
-        date: "25/02/2023",
-        hot: false,
-      },
-      {
-        title: "notiFour",
-        date: "05/01/2023",
-        hot: false,
-      },
-      {
-        title: "notiFive",
-        date: "05/01/2023",
-        hot: false,
-      },
-    ],
-  },
-  {
-    tabName: "event",
-    article: [
-      {
-        title: "notiOne",
-        date: "25/06/2023",
-        hot: true,
-      },
-      {
-        title: "notiTwo",
-        date: "25/04/2023",
-        hot: true,
-      },
-      {
-        title: "notiThree",
-        date: "25/02/2023",
-        hot: false,
-      },
-      {
-        title: "notiFour",
-        date: "05/01/2023",
-        hot: false,
-      },
-      {
-        title: "notiFive",
-        date: "05/01/2023",
-        hot: false,
-      },
-    ],
-  },
-  {
-    tabName: "community",
-    article: [
-      {
-        title: "notiOne",
-        date: "25/06/2023",
-        hot: true,
-      },
-      {
-        title: "notiTwo",
-        date: "25/04/2023",
-        hot: true,
-      },
-      {
-        title: "notiThree",
-        date: "25/02/2023",
-        hot: false,
-      },
-      {
-        title: "notiFour",
-        date: "05/01/2023",
-        hot: false,
-      },
-      {
-        title: "notiFive",
-        date: "05/01/2023",
-        hot: false,
-      },
-    ],
-  },
-];
-
-export const applications = ["Appstore", "Google Play", "Window", "APK"];
-
-export const appName = {
-  appStore: "Appstore",
-  googlePlay: "Google Play",
-  window: "Window",
-  apk: "APK",
-};
-
-export const ADDRESS_NULL = "0x0000000000000000000000000000000000000000";
-
-export enum NETWORK {
-  ETHEREUM = "ethereum",
-  BINANCE = "binance",
-}
-
-export enum Currencies {
-  USC = "USC",
-  USDT = "USDT",
-}
-
-export enum ACCEPTED_CURRENCY {
-  USDT = "USDT",
-  VPL = "VPL",
-}
-export const USDT_TO_VPL_EXCHANGE_RATE = 1 / 24500;
-
-export const MINIMUM_TX_CONFIRMATION = 5;
-export const REFECT_CONFIRMATION_BLOCK = 3000;
-
-export const ERR_CODE = {
-  NOT_FOUND: "NOT_FOUND".toLowerCase(),
-  USER_NOT_FOUND: "USER_NOT_FOUND".toLowerCase(),
-  CIRCLE_REFERRAL_NOT_ALLOWED: "CIRCLE_REFERRAL_NOT_ALLOWED".toLowerCase(),
-  NOT_TX_OWNER: "NOT_TX_OWNER".toLowerCase(),
-  CONFIRMATION_TOO_LOW: "CONFIRMATION_TOO_LOW".toLowerCase(),
-  INVALID_CURRENCY: "INVALID_CURRENCY".toLowerCase(),
-  INVALID_TX_FUNCTION: "INVALID_TX_FUNCTION".toLowerCase(),
-  INVALID_PURCHASE_PRICE: "INVALID_PURCHASE_PRICE".toLowerCase(),
-  INVALID_DEPOSIT_ADDRESS: "INVALID_DEPOSIT_ADDRESS".toLowerCase(),
-  NO_VACANT_GIFTBOX: "NO_VACANT_GIFTBOX".toLowerCase(),
-  GIFTBOX_NOT_AVAILABLE: "GIFTBOX_NOT_AVAILABLE".toLowerCase(),
-  INVALID_SIGNATURE: "INVALID_SIGNATURE".toLowerCase(),
-  NOT_GIFTBOX_OWNER: "NOT_GIFTBOX_OWNER".toLowerCase(),
-  TX_HASH_USED: "TX_HASH_USED".toLowerCase(),
-  USER_LOCKED: "USER_LOCKED".toLowerCase(),
-  INVALID_CAPTCHA_TOKEN: "INVALID_CAPTCHA_TOKEN".toLowerCase(),
-  MAX_GIFTBOX_CAPACITY_REACHED: "MAX_GIFTBOX_CAPACITY_REACHED".toLowerCase(),
-  OTHER_BOX_LOCKED: "OTHER_BOX_LOCKED".toLowerCase(),
-  ALREADY_BOUGHT: "ALREADY_BOUGHT".toLowerCase(),
-  MAX_SPIN_REACHED: "MAX_SPIN_REACHED".toLowerCase(),
-  NO_MORE_SPIN_SLOTS: "NO_MORE_SPIN_SLOTS".toLowerCase(),
-  END_OF_TURN: "END_OF_TURN".toLowerCase(),
-  PRICE_SLID_TOO_MUCH: "PRICE_SLID_TOO_MUCH".toLowerCase(),
-};
-
-export const TimeRange = 5 * 60;
-
-export const AMOUNT_BUY_GIFT = 200;

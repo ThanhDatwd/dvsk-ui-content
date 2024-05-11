@@ -38,11 +38,11 @@ export const CardInfo: FC<CardInfoProps> = ({
 
   return (
     <div
-      className={`relative flex w-full min-w-0 flex-col rounded-lg border-0 bg-primary dark:bg-primaryDark ${containerStyle}`}
+      className={`relative flex flex-col min-w-0 bg-primary dark:bg-primaryDark w-full border-0 rounded-lg ${containerStyle}`}
     >
       {label && (
-        <div className="mb-2 rounded-t-2xl border-b border-[#333] py-2">
-          <h6 className="text--base mb-0 font-bold text-[#333] dark:text-[#FAFAFA] lg:text-2xl">
+        <div className="py-2 border-b border-[#333] rounded-t-2xl mb-2">
+          <h6 className="mb-0 text--base lg:text-2xl text-[#333] dark:text-[#FAFAFA] font-bold">
             {label}
           </h6>
         </div>
@@ -51,13 +51,13 @@ export const CardInfo: FC<CardInfoProps> = ({
         {data.map((item, index) => (
           <div
             key={index}
-            className={`flex items-center justify-between text-[#333] dark:text-[#FAFAFA] ${itemStyle}`}
+            className={`flex justify-between items-center text-[#333] dark:text-[#FAFAFA] ${itemStyle}`}
           >
-            <div className="flex items-center gap-1">
+            <div className="flex gap-1 items-center">
               {item.keyIcon && item.keyIcon}
               <p className={`${textSize}`}>{t(`${item.label}`)}</p>
             </div>
-            <div className="flex cursor-pointer items-center gap-1">
+            <div className="flex gap-1 items-center cursor-pointer">
               <p className={`${textSize}`}>
                 {item.short ? convertString(item.value ?? "") : item.value}
               </p>

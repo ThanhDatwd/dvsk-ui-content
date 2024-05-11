@@ -9,7 +9,7 @@ export const ToggleThemeButton = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className="ml-3 flex flex-col justify-center">
+    <div className="flex flex-col justify-center ml-3">
       <input
         type="checkbox"
         name="light-switch"

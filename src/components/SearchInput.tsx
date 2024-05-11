@@ -20,7 +20,7 @@ export const SearchInput: FC<SearchInputProps> = ({
   const { theme } = useTheme();
 
   return (
-    <div className="mb-5 flex items-center gap-2 rounded-xl border border-black p-2 dark:border-white md:mb-0">
+    <div className="flex items-center gap-2 border dark:border-white border-black p-2 mb-5 md:mb-0 rounded-xl">
       <SearchIcon color={isDarkTheme(theme) ? "#ffffff" : "#000000"} />
       <input
         spellCheck={false}

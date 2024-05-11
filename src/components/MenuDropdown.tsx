@@ -23,8 +23,8 @@ export const MenuDropdown: FC<Props> = ({ title, options }) => {
 
   return (
     <div>
-      <div className="flex w-full justify-between" onClick={toggleShow}>
-        <p className="text-lg font-bold">{t(`${title}.title`)}</p>
+      <div className="w-full flex justify-between" onClick={toggleShow}>
+        <p className="font-bold text-lg">{t(`${title}.title`)}</p>
         <div className={`${show ? "rotate-90" : ""} duration-300`}>
           <ArrowRightIcon color={chooseTheme(theme, "#000", "#fff")} />
         </div>
@@ -32,7 +32,7 @@ export const MenuDropdown: FC<Props> = ({ title, options }) => {
       <div
         className={`p-4  md:p-8 ${
           show ? "flex" : "hidden"
-        } w-full flex-col gap-3 transition duration-300 md:gap-6 ${chooseTheme(
+        } flex-col gap-3 md:gap-6 w-full transition duration-300 ${chooseTheme(
           theme,
           "#000",
           "#fff",

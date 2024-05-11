@@ -14,15 +14,3 @@ export type DataSectionProps = {
   short?: boolean;
   keyIcon?: JSX.Element;
 };
-
-export type MemberCardType = {
-  bannerUrl: string;
-  avatarUrl: string;
-  name: string;
-  position: string;
-  infoMore: {
-    info1: string;
-    info2: string;
-    info3: string;
-  };
-};

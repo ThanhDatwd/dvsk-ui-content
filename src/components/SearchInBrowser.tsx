@@ -5,7 +5,7 @@ import { FC, useRef, useState } from "react";
 import { SearchIcon } from "@/assets/icons/SearchIcon";
 import { useTheme } from "@/hooks/useTheme";
 import { isDarkTheme } from "@/utils/theme";
-import { debounce } from "@/utils";
+import { debounce } from "@/utils/constants";
 import { useTranslation } from "react-i18next";
 
 declare const window: any;
@@ -41,7 +41,7 @@ export const SearchInBrowser = ({ handleFocus, handleBlur }: Iprops) => {
       true,
       false,
       forward,
-      false,
+      false
     );
 
     if (!success) {
@@ -56,9 +56,8 @@ export const SearchInBrowser = ({ handleFocus, handleBlur }: Iprops) => {
   };
 
   return (
-    <div className="mb-5 flex items-center gap-2 rounded-xl border border-black p-2 dark:border-white md:mb-0">
-      <div
-        className="cursor-pointer"
+    <div className="flex items-center gap-2 border dark:border-white border-black p-2 mb-5 md:mb-0 rounded-xl">
+      <div className="cursor-pointer"
         onClick={() => {
           setWi(80);
           handleFocus && handleFocus();
@@ -75,8 +74,8 @@ export const SearchInBrowser = ({ handleFocus, handleBlur }: Iprops) => {
         onChange={(event) => {
           debounceSearchHandle(event.target.value);
         }}
-        placeholder={wi === 0 ? "" : t("search")}
-        className={`bg-transparent leading-[28px] outline-none lg:w-[${wi}px] w-full duration-300 ease-out xl:max-w-none`}
+        placeholder={wi===0?"":t("search")}
+        className={`bg-transparent leading-[28px] outline-none lg:w-[${wi}px] ease-out duration-300 w-full xl:max-w-none`}
         onBlur={() => {
           setFocusSearch(false);
           setWi(0);
@@ -88,8 +87,8 @@ export const SearchInBrowser = ({ handleFocus, handleBlur }: Iprops) => {
           // handleFocus && handleFocus();
         }}
       />
-      <div className="rounded-md border p-1 text-xs">CTRL</div>
-      <div className="rounded-md border p-1 text-xs">K</div>
+      <div className="border text-xs rounded-md p-1">CTRL</div>
+      <div className="border text-xs rounded-md p-1">K</div>
     </div>
   );
 };
