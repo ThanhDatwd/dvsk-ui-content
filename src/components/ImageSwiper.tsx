@@ -32,7 +32,7 @@ export const ImagesSwiper: FC<Props> = ({ imageListUrl, imagePerPage = 1 }) => {
           return (
             <SwiperSlide key={index} className="">
               <div className="flex justify-center">
-                <div className="w-full md:px-10 border-dotted border-2 border-white/[.1]">
+                <div className="w-full border-2 border-dotted border-white/[.1] md:px-10">
                   <Link href={value}>
                     <img alt={`${index}`} src={value} />
                   </Link>

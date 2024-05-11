@@ -1,23 +1,23 @@
-import { CONTRACT_ADDRESS, IAbis } from "../token";
 import {
   getContract,
+  getCurrentChainId,
   getGasPriceAndGasLimit,
   useConnectorByName,
 } from "@/pkgs/augmentlab-wallet-connector/connector";
 import { useAugmentlabsWalletContext } from "@/pkgs/augmentlab-wallet-connector/context";
 import { E_NETWORK_ID } from "@/pkgs/augmentlab-wallet-connector/types";
 import { ADDRESS_NULL, Currencies } from "@/utils/constants";
-import {
-  convertBalanceDecimalToNumber,
-  convertNumberToBalanceDecimal,
-} from "@/utils/converter";
-import { waitTransaction } from "@/utils/transactionHelpers";
 import contractJson from "@/web3/abi/VinachainPoint.json";
 import { MaxUint256 } from "@ethersproject/constants";
-import Web3 from "web3";
+import { CONTRACT_ADDRESS, EToken, IAbis } from "../token";
 import { core } from "./useQuicknode";
 import initialWeb3 from "./useWeb3";
-export type TransferUsc = {
+import abiUsdtToken from "@/web3/abi/token.json";
+import { convertNumberToBalanceDecimal } from "@/utils/converter";
+import Web3 from "web3";
+import { waitTransaction } from "@/utils/transactionHelpers";
+
+export type TransferUsdt = {
   from: string;
   to: string;
   transactionHash: string;
@@ -46,23 +46,25 @@ export const useToken = () => {
     token: string,
     contractJson: IAbis,
   ): Promise<number> => {
+    if (!account || !networkSeleted) throw new Error("Please connect wallet");
     const contract = getContract(provider, contractJson, token);
+
     const decimals = await contract.methods.decimals().call();
     return decimals;
   };
-
   const purchase = async (
     amount: string,
     referrerAddress: string,
   ): Promise<string> => {
     if (!account || !networkSeleted) throw new Error("Please connect wallet");
 
-    const address = CONTRACT_ADDRESS.VINACHAIN[networkSeleted] as string;
+    const address = CONTRACT_ADDRESS[EToken.USDT][networkSeleted] as string;
 
     const contract = getContract(provider, contractJson, address);
     const { gasLimit, gasPrice } = await getGasPriceAndGasLimit(provider);
+
     const balance = await contract.methods
-      .purchasePoints(amount, referrerAddress || ADDRESS_NULL)
+      .purchasePoints(amount, referrerAddress)
       .send({ from: account, gasLimit, gasPrice });
     return balance;
   };
@@ -72,9 +74,11 @@ export const useToken = () => {
     contractJson: IAbis,
   ): Promise<string> => {
     const contract = getContract(provider, contractJson, token);
+
     const allowance = await contract.methods
-      .allowance(account, CONTRACT_ADDRESS.VINACHAIN[networkSeleted])
+      .allowance(account, CONTRACT_ADDRESS[EToken.USDT][networkSeleted])
       .call();
+
     return allowance;
   };
 
@@ -87,7 +91,7 @@ export const useToken = () => {
 
     await contract.methods
       .approve(
-        CONTRACT_ADDRESS.VINACHAIN[networkSeleted],
+        CONTRACT_ADDRESS[EToken.USDT][networkSeleted],
         MaxUint256.toString(),
       )
       .send({ from: account, gasLimit, gasPrice });
@@ -103,7 +107,7 @@ export const useToken = () => {
   };
 
   const getReferralReward = async (): Promise<string> => {
-    const address = CONTRACT_ADDRESS.VINACHAIN[networkSeleted] as string;
+    const address = CONTRACT_ADDRESS[EToken.USDT][networkSeleted] as string;
 
     const contract = getContract(provider, contractJson, address);
     const totalSupply = await contract.methods
@@ -115,13 +119,28 @@ export const useToken = () => {
   const getReferrer = async (): Promise<string> => {
     if (!account || !networkSeleted) throw new Error("Please connect wallet");
 
-    const address = CONTRACT_ADDRESS.VINACHAIN[networkSeleted] as string;
+    const address = CONTRACT_ADDRESS[EToken.USDT][networkSeleted] as string;
 
     const contract = getContract(provider, contractJson, address);
     const totalSupply = await contract.methods
       .viewReferrer()
       .call({ from: account });
     return totalSupply;
+  };
+
+  const checkIsReferrerValid = async (
+    referrerAddress: string,
+  ): Promise<boolean> => {
+    if (!account || !networkSeleted) throw new Error("Please connect wallet");
+
+    const address = CONTRACT_ADDRESS[EToken.USDT][networkSeleted] as string;
+
+    const contract = getContract(provider, contractJson, address);
+
+    const isValid = await contract.methods
+      .isReferrerValid(account, referrerAddress)
+      .call();
+    return isValid;
   };
 
   const totalSupplyNotConnectWallet = async (): Promise<string> => {
@@ -164,6 +183,73 @@ export const useToken = () => {
     return Number(totalSupplyValue);
   };
 
+  const transferUsdt = async (
+    token: EToken,
+    amount: string,
+    opts?: { blocksToWait: number; interval: number },
+  ): Promise<TransferUsdt> => {
+    const networkSeleted = getCurrentChainId();
+    if (!account) throw new Error("Please connect wallet");
+
+    let contract = getContract(
+      provider,
+      abiUsdtToken,
+      CONTRACT_ADDRESS[token][networkSeleted],
+    );
+
+    const { gasLimit, gasPrice } = await getGasPriceAndGasLimit(provider);
+
+    const decimals = await contract.methods.decimals().call();
+    const value = convertNumberToBalanceDecimal(amount, decimals);
+
+    const address = CONTRACT_ADDRESS.DVSK[networkSeleted];
+
+    const result: TransferUsdt = await contract.methods
+      .transfer(address, value)
+      .send({ from: account, gasLimit, gasPrice });
+
+    if (!opts) {
+      return result;
+    }
+    const web3 = new Web3(provider as any);
+    await waitTransaction(web3, result.transactionHash, {
+      blocksToWait: opts.blocksToWait,
+      interval: opts.interval,
+    });
+
+    return result;
+  };
+
+  const importNFT = async (
+    tokenId: string,
+    decimals?: string,
+  ): Promise<boolean> => {
+    const web3 = window.ethereum as any;
+    const address = CONTRACT_ADDRESS.NFT[networkSeleted];
+
+    try {
+      await web3.request({ method: "eth_requestAccounts" });
+      // Request MetaMask to add the token
+      await web3.request({
+        method: "wallet_watchAsset",
+        params: {
+          type: "ERC1155",
+          options: {
+            address,
+            symbol: "NFT", // Symbol of your NFT
+            decimals: decimals || 18, // Decimals of your NFT token
+            tokenId, // URL to the image of your NFT
+          },
+        },
+      });
+      console.log("true");
+      return true;
+    } catch (error) {
+      console.error("Error adding token to MetaMask:", error);
+      return false;
+    }
+  };
+
   return {
     getBalance,
     getDecimals,
@@ -175,5 +261,8 @@ export const useToken = () => {
     getReferrer,
     totalSupplyNotConnectWallet,
     decimalNotConnectWallet,
+    checkIsReferrerValid,
+    transferUsdt,
+    importNFT,
   };
 };

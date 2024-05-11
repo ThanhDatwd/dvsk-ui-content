@@ -3,7 +3,7 @@
 export const LoadingSpinner = () => {
   return (
     <svg
-      className="animate-spin text-white w-full h-full"
+      className="h-full w-full animate-spin text-white"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"

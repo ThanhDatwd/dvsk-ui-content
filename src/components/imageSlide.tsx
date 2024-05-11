@@ -14,7 +14,6 @@ interface Props {
 }
 
 export const ImagesSlide: FC<Props> = ({ imageListUrl, imagePerPage = 1 }) => {
-  console.log(imageListUrl);
   return (
     <Swiper
       navigation={true}

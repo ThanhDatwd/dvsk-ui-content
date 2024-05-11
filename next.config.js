@@ -3,7 +3,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["localhost"],
+    domains: ["localhost", "dvsk-fawn.vercel.app", "192.168.12.119", "ipfs.io", "static.daivietsuky.com"],
   },
 };
 

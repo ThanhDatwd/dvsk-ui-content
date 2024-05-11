@@ -1,26 +1,33 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from "tailwindcss";
 
 const config: Config = {
-  darkMode: 'class',
+  darkMode: "class",
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-    "./node_modules/react-tailwindcss-datepicker/dist/index.esm.js"
-
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/react-tailwindcss-datepicker/dist/index.esm.js",
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      fontFamily: {
+        amatica: ["Amatic SC"],
+        merriweather: ["Merriweather"],
+        inter: ["Inter", "sans-serif"],
       },
-			colors: {
-        primary: "#C0E7E5",
-				primaryDark: "#1E1E22",
-        secondary: "#3B3BFC",
-				secondaryDark: "#D9610B",
+      cursor: {
+        custom: "url(/assets/images/cursor-2.png), pointer",
+      },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic":
+          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
+      colors: {
+        primary: "#F0EDE7",
+        primaryDark: "#1E1E22",
+        secondary: "#251F1F",
+        secondaryDark: "#D9610B",
         background: "#02000B",
         uscYellow: "#F0C546",
         grey: "#CFCFCF",
@@ -29,17 +36,21 @@ const config: Config = {
         active: "#5FE0C7",
         grey_organ200: "#4D3D32",
         grey_organ300: "#342E29",
+        red: "#6B0E01",
       },
       screens: {
-        xs: "480px",
+        xs: "0px",
         sm: "640px",
         md: "768px",
         lg: "1024px",
         xl: "1280px",
         "2xl": "1504px",
       },
+      transitionDuration: {
+        '2000': '2000ms',
+      }
     },
   },
   plugins: [],
-}
-export default config
+};
+export default config;

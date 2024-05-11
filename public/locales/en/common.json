@@ -1,7 +1,385 @@
 {
-  "title": "Đại Việt Sử Ký",
-  "HomePage":{
-    
-  }
-    
+  "title": "Dai Viet Su Ky",
+  "characterPage": {
+    "introduce": {
+      "title": "Character Introduction",
+      "paragraphOne": "A talented general with the motto 'Defeat the enemy, report gratitude to the emperor.' This young general possesses a love for the country, courage, and strong determination.",
+      "paragraphTwo": "Tran Quoc Toan, known for the famous legend of squeezing an orange at the Binh Than Conference, where he was not allowed to discuss military matters due to his young age. Undeterred, Tran Quoc Toan gathered soldiers, trained his troops, and led a rebellion against foreign invaders.",
+      "paragraphThree": "With his strong determination, he was conferred the title of Hau Van Vuong and merged his forces to participate in the rebellion."
+    },
+    "skill": {
+      "title": "Skills",
+      "ulti": "Ultimate Move",
+      "intrinsic": {
+        "title": "Intrinsic",
+        "content": "Lorem ipsum dolor sit amet consectetur. Venenatis netus rhoncus nullam ullamcorper. Amet dictum laoreet ultrices scelerisque sed erat. Massa fermentum nec quis nisi dignissim ipsum cras pellentesque. Leo facilisis sagittis risus ac in. Ac maecenas mauris eu sed etiam viverra nunc nibh."
+      },
+      "activated": {
+        "title": "Activated",
+        "content": "Lorem ipsum dolor sit amet consectetur. Venenatis netus rhoncus nullam ullamcorper. Amet dictum laoreet ultrices scelerisque sed erat. Massa fermentum nec quis nisi dignissim ipsum cras pellentesque. Leo facilisis sagittis risus ac in. Ac maecenas mauris eu sed etiam viverra nunc nibh."
+      }
+    }
+  },
+  "homePage": {
+    "footer": {
+      "about": {
+        "title": "About Us",
+        "whitePaperEN": "White paper (EN)",
+        "whitePaperTaiwan": "White paper (Taiwan)",
+        "contact": "Contact: 1900.30.25"
+      },
+      "fAQ": {
+        "title": "FAQ",
+        "feedback": "Feedback",
+        "termsAndConditions": "Terms and Conditions"
+      },
+      "social": {
+        "title": "Social Media"
+      }
+    },
+    "character": {
+      "introduce": "Known as the 'Northern Guardian Grand Commander,' Tran Hung Dao is a military genius and a virtuous and accomplished political figure.",
+      "imgAlt": "Image of Tran Hung Dao",
+      "content1": "- He is renowned for his extensive knowledge and eloquence, excelling in both literature and a deep understanding of military strategy. Proficient in horse riding and archery, he is a master of the art of warfare.",
+      "content2": "- Three times, he led the army to defeat the Mongol invaders, thwarting their attempts to invade our country.",
+      "content3": "- In addition to his outstanding military prowess, Tran Quoc Tuan is also an exemplary figure of loyalty and wisdom. He knows how to set aside personal grievances to unite all nobles and generals in the court to serve the king and help the nation defeat its enemies.",
+      "seeDetails": "See details"
+    },
+    "partnerAndSponsor": {
+      "title": "Partners and Sponsors",
+      "partner1": "Partner 1",
+      "partner2": "Partner 2",
+      "partner3": "Partner 3",
+      "partner4": "Partner 4",
+      "partnerContent": "Lorem ipsum dolor sit amet consectetur. Augue odio cursus pretium phasellus dapibus. Ullamcorper sed sem enim quam. Elit nunc habitasse sit tortor metus."
+    },
+    "developmentTeam": {
+      "title": "Development Team",
+      "info1": "Information 1",
+      "info2": "Information 2",
+      "info3": "Information 3"
+    },
+    "launchRoadmap": {
+      "title": "Launch Roadmap",
+      "quarter1": "Quarter 1",
+      "quarter1Introduce": "05/01: Dai Viet Su Ky - The heroic history / Introduction of the historical game series Dai Viet Su Ky - imbued with the heroic atmosphere.",
+      "quarter1OpenBeta": "05/01: Official open beta of Dai Viet Su Ky game.",
+      "quarter1Launch": "25/02: Grand launch of Dai Viet Su Ky.",
+      "quarter2": "Quarter 2",
+      "quarter2Launch": "25/04: Launch of the expanded farm feature.",
+      "quarter2Function": "25/06: Official reveal of the battle function.",
+      "quarter3": "Quarter 3",
+      "quarter3Introduce": "05/07: Dai Viet Su Ky - The heroic history / Introduction of the historical game series Dai Viet Su Ky - imbued with the heroic atmosphere.",
+      "quarter3OpenBeta": "05/07: Official open beta of Dai Viet Su Ky game.",
+      "quarter3Launch": "25/08: Grand launch of Dai Viet Su Ky.",
+      "quarter4": "Quarter 4",
+      "quarter4Introduce": "05/10: Dai Viet Su Ky - The heroic history / Introduction of the historical game series Dai Viet Su Ky - imbued with the heroic atmosphere.",
+      "quarter4OpenBeta": "05/10: Official open beta of Dai Viet Su Ky game.",
+      "quarter4Launch": "25/11: Grand launch of Dai Viet Su Ky."
+    },
+    "rewards": {
+      "skill1": "Skill 1",
+      "skill2": "Skill 2",
+      "skill3": "Skill 3",
+      "skill4": "Skill 4",
+      "technique": "Technique",
+      "demonstrationVideo": "Short video illustrating skills",
+      "internal": "Internal",
+      "internalContent": "Lorem ipsum dolor sit amet consectetur. Venenatis netus rhoncus nullam ullamcorper. Amet dictum laoreet ultrices scelerisque sed erat. Massa fermentum nec quis nisi dignissim ipsum cras pellentesque. Leo facilisis sagittis risus ac in. Ac maecenas mauris eu sed etiam viverra nunc nibh.",
+      "active": "Active",
+      "activeContent": "Lorem ipsum dolor sit amet consectetur. Venenatis netus rhoncus nullam ullamcorper. Amet dictum laoreet ultrices scelerisque sed erat. Massa fermentum nec quis nisi dignissim ipsum cras pellentesque. Leo facilisis sagittis risus ac in. Ac maecenas mauris eu sed etiam viverra nunc nibh.",
+      "title": "Rewards",
+      "tournament": "Tournament",
+      "pVP": "PVP",
+      "loginReceiveRewards": "Login to receive rewards",
+      "upgrade": "Upgrade",
+      "battleWithMonsters": "Battle with monsters",
+      "bossBattle": "Boss battle"
+    },
+    "introduce": {
+      "title": "Introduction to the Game",
+      "paragraphOne": "The Complete Annals of Dai Viet is the oldest surviving official history of Vietnam, a priceless heritage of the Vietnamese culture that has endured to this day.",
+      "paragraphTwo": "With a mission to bring history closer to the youth of Vietnam in a genuine, intimate, and fresh way, the Vietsmile team released the historical game titled Dai Viet Su Ky in February 2024. Dai Viet Su Ky allows players to embody the heroic generals of Đại Việt. Gamers must apply intelligence, strategic acumen, and refined skills to directly build their empire, expand the Vietnamese territory, govern the nation, ensure the well-being and happiness of the people, and engage in direct battles against foreign invaders.",
+      "paragraphThree": "Especially tailored for the historical games genre in Vietnam, the production team has designed distinctive cultural elements, such as stilt houses, conical hats, bamboo flutes, red-crowned cranes, traditional áo dài costumes, and the attire of ancient Vietnamese generals."
+    },
+    "news": {
+      "title": "News",
+      "tab": {
+        "news": {
+          "title": "NEWS",
+          "notiOne": "Officially revealing the combat function.",
+          "notiTwo": "Launching the expanded farm feature.",
+          "notiThree": "Grand launch of Dai Viet Su Ky.",
+          "notiFour": "Dai Viet Su Ky open beta",
+          "notiFive": "Introduction of the game series Dai Viet Su Ky"
+        },
+        "event": {
+          "title": "EVENTS",
+          "notiOne": "",
+          "notiTwo": "",
+          "notiThree": ""
+        },
+        "community": {
+          "title": "COMMUNITY",
+          "notiOne": "",
+          "notiTwo": "",
+          "notiThree": ""
+        }
+      }
+    },
+    "figure": {
+      "title": "Character",
+      "attack": "Attack",
+      "criticalStrike": "Critical",
+      "support": "Support",
+      "control": "Control",
+      "defense": "Defense"
+    }
+  },
+  "commercialMarketPage": {
+    "total": {
+      "title": "Total"
+    },
+    "process": {
+      "title": "Process",
+      "description": "The prize draw takes place when all 100 boxes of USDT are sold"
+    },
+    "connectWallet": {
+      "button": "Connect Wallet",
+      "note": "Please link your wallet to redeem",
+      "modal": {
+        "title": "Connect Wallet"
+      }
+    },
+    "exchangeGifts": {
+      "title": "Exchange gifts",
+      "note": "Note: 1 wallet can only hold a maximum of 5 gift boxes",
+      "currentlyOwning": "Number of gift boxes currently owned",
+      "button": "Exchange ",
+      "buttonReward": "Lucky wheel"
+    },
+    "referral": {
+      "title": "Referal",
+      "description": "You will receive a 5% commission from those who purchase VPL using your referral link.",
+      "referralCode": "Your referral code",
+      "referrerCode": "Your referrer code",
+      "importReferralCode": "Enter your referral code here.",
+      "receiveReferralReward": "Receive referral rewards",
+      "receiveReward": "Receive rewards"
+    },
+    "swap": {
+      "title": "Convert USDT to VPL"
+    },
+    "history": {
+      "title": "History",
+      "description_buy_1": "You have purchased",
+      "description_buy_2": "gift box"
+    }
+  },
+  "diverseCharacters": {
+    "title": "Diverse Characters",
+    "subTitle": "Game system with over 20+ characters, choose the one that suits you best",
+    "searchPlaceholder": "Search by name",
+    "strength": "Strength"
+  },
+  "comingSoon": {
+    "title": "Coming-soon!",
+    "notifyContent": "Currently this feature has not been released",
+    "notifySubContent": "We will try to complete it as soon as possible",
+    "comeBackContent": "Please come back later"
+  },
+  "header": {
+    "home": "HOME",
+    "news": "NEWS",
+    "battlefield": "BATTLEFIELD",
+    "contact": "CONTACT",
+    "figure": "CHARACTERS",
+    "partner": "PARTNERS",
+    "warning": "Playing games for more than 180 minutes a day can have adverse effects on health."
+  },
+  "pleaseConnectWalletToGetGift": "Please connect your wallet to get your gift",
+  "connectWallet": "Connect Wallet",
+  "chooseNetwork": "Choose network",
+  "chooseWallet": "Choose wallet",
+  "binance": "Binance",
+  "metamask": "Metamask",
+  "walletConnect": "wallet connect",
+  "connectSuccess": "Wallet connection successful!",
+  "copied": "Copied",
+  "buyFail": "Failed to purchase. Please try again later.",
+  "walletAddress": "Wallet address",
+  "reward": "Reward",
+  "turnRemaining": "Turn remaining",
+  "continue": "Continue",
+  "congratulations": "Congratulations!",
+  "youHaveOpened": "You have opened",
+  "withdrawToWallet": "Withdraw to wallet",
+  "purchase": {
+    "purchasingAndWaitConfirmation": "Purchasing and wait confirmation",
+    "purchasingToken": "Purchasing token",
+    "purchasedSuccessful": "Your purchase has been successful, we are sending you the NFT. You can view your purchase history to check progress.",
+    "errorWhenpurchasingToken": "Error when purchasing token"
+  },
+  "buy": "Buy",
+  "pay": "Pay",
+  "giftBoxNo": "No. of gift box",
+  "pleaseChooseGiftBox": "Please choose the gift box",
+  "paying": "Paying...",
+  "giftBaskets": "Gift baskets",
+  "pleasePayBeforeContinue": "Please pay before continuing",
+  "importNFTSuccess": "Import NFT successful",
+  "importNFTFail": "Import NFT failed",
+  "errorMessages": {
+    "notFound": "Not found",
+    "userNotFound": "User not found",
+    "circleReferralNotAllowed": "Circle referral not allowed",
+    "notTxOwner": "Not tx owner",
+    "confirmationTooLow": "Confirmation too low",
+    "invalidCurrency": "Invalid currency",
+    "invalidTxFunction": "Invalid tx function",
+    "invalidPurchasePrice": "Invalid purchase price",
+    "invalidDepositAddress": "Invalid deposit address",
+    "noVacantGiftbox": "No vacant giftbox",
+    "giftboxNotAvailable": "Giftbox not available",
+    "invalidSignature": "Invalid signature",
+    "notGiftboxOwner": "Not giftbox owner",
+    "txHashUsed": "Tx hash used",
+    "userLocked": "User locked",
+    "invalidCaptchaToken": "Invalid captcha token",
+    "maxGiftboxCapacityReached": "Max giftbox capacity reached",
+    "otherBoxLocked": "Other box locked",
+    "alreadyBought": "Already bought",
+    "maxSpinReached": "Max spin reached",
+    "noMoreSpinSlots": "No more spin slots",
+    "endOfTurn": "Your turn is over",
+    "unknownError": "Unknown error"
+  },
+  "pleaseConnectWallet": "Please connect your wallet",
+  "noHistory": "No history",
+  "confirm": "Confirm",
+  "applyReferralSuccess": "Apply referral success",
+  "applyReferralFailed": "Apply referral failed",
+  "youAreLocked": "You have been locked, please contact customer service to unlock.",
+  "timeRemaining": "Time remaining",
+  "sold": "Sold",
+  "notSoldYet": "Not sold yet",
+  "locked": "Locked",
+  "selectingGiftbox": "Selecting",
+  "verifyTransaction": "Verify transaction",
+  "verifying": "Verifying...",
+  "verify": "Verify",
+  "verifySuccess": "Verify success",
+  "verifyFailed": "Verify failed. Please try again.",
+  "transactionHash": "Transaction hash",
+  "isRequired": "{{value}} is required",
+  "bought": "Bought",
+  "minutes": "Minutes",
+  "seconds": "Seconds",
+  "spinning": "Spinning",
+  "spin": "Spin",
+  "pleaseDoNotExit": "Prize drawing is in progress, please do not exit",
+  "introduceCharacter": {
+    "TranKhanhDu": {
+      "introduce1": "He is a master of both literary and martial arts, his swordsmanship likened to 'falling snow, blooming flowers', able to charge into a crowd of thousands as if entering an empty space.",
+      "introduce2": "Tran Khanh Du continued to play a significant role in the subsequent two battles against the Yuan army, particularly in defeating their naval forces carrying provisions, under the command of Truong Van Ho in December 1287. This pivotal moment shifted the tide of the war, leading to eventual victory and driving the Yuan Mongol invaders completely out of Dai Viet's borders by 1288.",
+      "introduce3": "In May 1312, he also accompanied King Tran Anh Tong in a campaign against Chiem Thanh, capturing even the Chiem Thanh prince, Che Chi, and bringing him back to the country."
+    },
+    "PhamNguLao": {
+      "introduce1": "He is renowned for his intelligence, being a supremely talented individual in both literary and martial arts, with great ambition and high moral integrity.",
+      "introduce2": "Despite being of common birth, he rose to become the Supreme Commander of the Palace Guard, earning immense respect and honor, being likened to Hung Dao Vuong and enjoying special favor from the Tran dynasty court.",
+      "introduce3": "The life and career of Pham Ngu Lao have become a great legend in the national history, a testament to the ideology and military art of the Tran era. His exceptional talents made him, though not of noble lineage, highly esteemed by the Tran kings."
+    },
+    "CongChuaAnTu": {
+      "introduce1": "For the nation, for the people, Princess An Tu, though very young, forsake the luxurious life within the palace, sacrificing herself to shoulder the destiny of the nation.",
+      "introduce2": "An Tu entered battle alone, without a single piece of armor. She understood the peril the nation faced, with no other choice available, the princess embraced hardship, humiliation, and death to exchange for peace for the homeland."
+    }
+  },
+  "3dPage": {
+    "playTrailer": "PLAY TRAILER",
+    "viewOnOpensea": "VIEW ON OPENSEA",
+    "title": "We're defending our fatherland",
+    "ourRoadMap": "OUR ROADMAP",
+    "press": "PRESS",
+    "character": "CHARACTER",
+    "toSwitch": "TO SWITCH",
+    "closeMenu": "CLOSE MENU",
+    "home": "HOME",
+    "news": "NEWS",
+    "contact": "CONTACT",
+    "characters": "CHARACTERS",
+    "joinDiscord": "JOIN OUR DISCORD",
+    "followUsOnTwitter": "FOLLOW US ON TWITTER",
+    "drops": "\"DROPS\"",
+    "apparelLookBook": "APPAREL LOOK BOOK",
+    "termsAndConditions": "TERM & CONDITIONS",
+    "privacyPolicy": "PRIVACY POLICY",
+    "clickAnywhereToEnableSound": "Click anywhere to enable the sound",
+    "sceneText": {
+      "text1": {
+        "title1": "CHRONICLES",
+        "title2": "OF EMPIRES",
+        "content": "Delve into the annals of time, where you'll forge civilizations, navigate political intrigue, and lead armies in epic battles that shape the course of history. Unravel the mysteries of the past as you embark on a quest for power and legacy in this immersive empire-building saga."
+      },
+      "text2": {
+        "title1": "Epochs ",
+        "title2": "of History",
+        "content": "Embark on an adventure through legendary tales of history, from constructing mighty fortresses to battling formidable foes, in an exhilarating and meaningful journey. Experience the thrill of domination and empire-building across historical epochs."
+      }
+    }
+  },
+  "download": "Download",
+  "view": "View",
+  "balanceNotEnough": "Balance not enough",
+  "comingSoonFeature": "Coming Soon",
+  "characterIsBeingFinished": "Character is being finished",
+  "priceSlidTooMuch": "Price slippage is too much, please contact us for support.",
+  "sentNFTToYou": "The NFT has been sent to your wallet",
+  "nftTransferSuccess": "The NFT has been sent to your wallet successfully. Click 'Add NFTs' if you don't see it displayed on MetaMask.",
+  "addNFT": "Add NFTs",
+  "receiveReferralSuccess": "Successfully receive referral rewards. Please check your account",
+  "receiveReferralFail": "Failed to receive referral rewards. Please try again later or contact us",
+  "noData": "No data",
+  "loading": "Loading...",
+  "table": {
+    "title": "Table",
+    "id": "ID",
+    "name": "Name",
+    "value": "Value",
+    "description": "Description",
+    "image": "Image",
+    "level": "Level",
+    "quantity": "Quantity",
+    "txHash": "TX Hash",
+    "commission": "Commission",
+    "idReferrer": "ID Referrer",
+    "time": "Time",
+    "status": "Status"
+  },
+  "showMore": "Show more",
+  "showLess": "Show less",
+  "introduceNFT": {
+    "1": "With the golden six-character motto \"Defeat the enemy, report to the king's grace,\" the young general Trần Quốc Toản, possessing patriotism, courage, and steadfast determination, became renowned for his tale of \"crushing the orange\" at the Bình Than Conference, where he, as a young officer, was not allowed to participate in military discussions. Undeterred, Trần Quốc Toản took it upon himself to gather troops, train soldiers, and rise in rebellion against foreign invaders. Through his unwavering determination, he was conferred the title of Hầu Văn Vương and merged his troops with the uprising forces.",
+    "2": "Renowned for his prowess in both literary and martial arts, Trần Khánh Dư's swordsmanship was likened to \"snow falling, flowers blooming,\" as he could charge into a mass of thousands of soldiers as if into an empty space. Trần Khánh Dư continued to contribute significantly to two subsequent battles against the Yuan army, notably dispersing a fleet carrying provisions and supplies commanded by Trương Văn Hổ in December 1287. This maneuver altered the course of the war, leading to eventual victory and driving the Yuan Mongol invaders completely out of Đại Việt's borders by 1288. In May 1312, he accompanied King Trần Anh Tông in a campaign against Chiêm Thành, capturing both the city and its ruler, Chế Chí, and bringing them back to their homeland.",
+    "3": "For the nation and its people, Princess An Tư, though very young, abandoned the luxurious life of the royal court and sacrificed herself to bear the fate of the nation. An Tư entered the battlefield alone, without a weapon in hand, understanding the dire circumstances facing the country and accepting hardship, humiliation, and death to secure peace for the homeland.",
+    "4": "Renowned for his intelligence, unparalleled literary and martial prowess, lofty aspirations, and high moral character, Phạm Ngũ Lão, despite his humble origins, rose to become the Supreme Commander of the Điện úy, commanding immense respect and prestige, comparable to Hưng Đạo Vương, and enjoying special favors from the Trần dynasty. Phạm Ngũ Lão's life and career have become a legendary tale in the nation's history, a testament to the military ideology and art of the people during the Trần era. His exceptional talent earned him the admiration of the Trần kings, despite not being a noble lord.",
+    "5": "The virtuous mother of the nation, Trần Thị Dung, was an intelligent, talented, courageous, and resolute woman with extraordinary organizational skills. According to ancient records, before the appearance of Trần Thủ Độ, she bore the brunt of all hardships and tribulations to establish the Trần dynasty. When Trần Thủ Độ entered the royal court, she collaborated closely with him in birthing and building the Trần dynasty, meeting the demands of establishing a strong nation to resist the imminent threat of Yuan-Mongol invaders encroaching upon Đại Việt."
+  },
+  "pleaseConnectWalletToSeeOwnNFT": "Please link your wallet to see how many NFTs you own!",
+  "pleaseConnectWalletToSeeYourReferral": "Please connect wallet to see your referral!",
+  "pleaseConnectWalletToSeeYourLuckySpin": "Please connect wallet to see your lucky spin history!",
+  "viewHistory": "View history",
+  "receiveRewardsFromReferralCodes": "Receive rewards from referral codes",
+  "receiveRewardsFromReferralCodesSuccessful": "Receiving reward from referral code has been successful",
+  "receiveRewardsFromReferralCodesFailed": "Receiving reward from referral code has been failed",
+  "noTransactionHash": "No transaction hash",
+  "referralPayoutStatus": {
+    "notPaid": "Not paid",
+    "inProgress": "In progress",
+    "paid": "Paid"
+  },
+  "processing": "Processing...",
+  "sentNFT": "NFT sent",
+  "pleaseWaitAFewMinutes": "The exchange is under process. Please wait a few minutes",
+  "viewDetail": "View detail",
+  "noReward": "No reward"
 }

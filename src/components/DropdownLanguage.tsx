@@ -1,5 +1,6 @@
 "use client";
 
+import { LanguageIcon } from "@/assets/icons/LanguageIcon";
 import { FC, useEffect, useRef, useState } from "react";
 
 interface Props {
@@ -11,6 +12,8 @@ interface Props {
   overlayBgStyle?: string;
   modalLanguageStyle?: string;
   languageItemStyle?: string;
+  colorIcon?: string;
+  position?: string;
 }
 
 export const DropdownLanguage: FC<Props> = ({
@@ -22,6 +25,8 @@ export const DropdownLanguage: FC<Props> = ({
   overlayBgStyle = "bg-opacity-0",
   modalLanguageStyle,
   languageItemStyle = "py-2",
+  colorIcon,
+  position = "right-0 top-10 origin-top-right",
 }) => {
   const ref = useRef(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -46,48 +51,59 @@ export const DropdownLanguage: FC<Props> = ({
 
   return (
     <div
-      className="flex justify-center md:inline-block text-left w-full relative"
+      className="relative flex w-full justify-center text-left md:inline-block"
       ref={ref}
     >
       <div>
         <button
           onClick={() => setIsOpen(!isOpen)}
           type="button"
-          className={`inline-flex w-full  gap-x-1.5 rounded-lg px-1.5 py-1 text-sm whitespace-nowrap ${className}`}
+          className={`group mt-1 inline-flex w-full items-center gap-x-1.5  whitespace-nowrap rounded-lg py-1 text-[16px] ${className} fill-[red]`}
         >
+          <LanguageIcon
+            color={colorIcon || "#ffffff"}
+            className="group-hover:rotate-[20deg]"
+          />
           {defaultVal?.label}
         </button>
       </div>
-      {/* {isOpen && (
-        <div
-          className={`fixed inset-0 ${overlayBgStyle} bg-white transition-opacity`}
-        />
-      )} */}
       <div
-        className={`absolute py-1 shadow-lg top-10 right-0 bg-white dark:bg-[#222327] focus:outline-none ${
-          isOpen ? "" : "hidden"
+        className={`absolute  ${position} z-30  scale-0 shadow-lg duration-200 ease-linear focus:outline-none ${
+          isOpen ? "opacity-1 scale-100" : "opacity-0"
         } ${modalLanguageStyle}`}
       >
-        {options.map((options, i) => (
-          <div
-            key={i}
-            onClick={() => {
-              if (chosen?.label !== options.label) {
-                onChange(options.value);
-                setChosen(options);
-                setIsOpen(false);
-                setDefaultVal({ value: "", label: "" });
-              }
-            }}
-            className={`block px-4 text-sm ${
-              chosen?.label !== options.label
-                ? "cursor-pointer hover:bg-primary dark:hover:bg-secondaryDark text-dark dark:text-[#FAFAFA]"
-                : "dark:text-[#FAFAFA] bg-primary dark:bg-secondaryDark "
-            } ${languageItemStyle} `}
-          >
-            {options.label}
+        <div className="relative border border-[#9B968E] bg-[#DCD3C9] p-1">
+          <div className=" absolute left-0 top-0 z-10 flex w-full justify-between">
+            <div className="h-[10px] w-[10px] border-b border-r border-[#9B968E] "></div>
+            <div className="h-[10px] w-[10px] border-b border-l border-[#9B968E] "></div>
           </div>
-        ))}
+          <div className="relative flex h-full flex-col justify-center gap-2 border border-[#9B968E] bg-[#DCD3C9] p-2">
+            {options.map((options, i) => (
+              <div
+                key={i}
+                onClick={() => {
+                  if (chosen?.label !== options.label) {
+                    onChange(options.value);
+                    setChosen(options);
+                    setIsOpen(false);
+                    setDefaultVal({ value: "", label: "" });
+                  }
+                }}
+                className={`block px-4 text-sm ${
+                  chosen?.label !== options.label
+                    ? "text-dark cursor-pointer hover:bg-primary dark:text-[#FAFAFA] dark:hover:bg-secondaryDark"
+                    : "bg-primary dark:bg-secondaryDark dark:text-[#FAFAFA] "
+                } ${languageItemStyle} `}
+              >
+                {options.label}
+              </div>
+            ))}
+          </div>
+          <div className=" absolute bottom-0 left-0 z-10 flex w-full justify-between">
+            <div className="h-[10px] w-[10px] border-r border-t border-[#9B968E]"></div>
+            <div className="h-[10px] w-[10px] border-l border-t border-[#9B968E]"></div>
+          </div>
+        </div>
       </div>
     </div>
   );

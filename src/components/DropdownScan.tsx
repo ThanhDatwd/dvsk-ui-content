@@ -36,7 +36,7 @@ export const DropdownScan: FC<Props> = ({
       !reverse && onChange(defaultValue?.value as string);
       setDefaultVal(defaultValue);
     }
-  }, [defaultValue]);
+  }, [defaultValue, onChange, reverse]);
 
   ClickOutside(ref, () => {
     setIsOpen(false);
@@ -50,7 +50,7 @@ export const DropdownScan: FC<Props> = ({
           type="button"
           className={`flex w-full ${
             fit ? "justify-between" : "justify-center"
-          }  gap-x-1.5 rounded-lg ${bg}  px-3 py-2 text-sm shadow-sm whitespace-nowrap ${className}`}
+          }  gap-x-1.5 rounded-lg ${bg}  whitespace-nowrap px-3 py-2 text-sm shadow-sm ${className}`}
         >
           {(defaultVal?.label as string) || chosen || title || "Options"}
 
@@ -85,7 +85,7 @@ export const DropdownScan: FC<Props> = ({
                 setIsOpen(false);
                 setDefaultVal({ value: "", label: "" });
               }}
-              className="text-left block px-4 py-2 text-sm cursor-pointer hover:bg-[#3B3BFC] hover:text-white"
+              className="block cursor-pointer px-4 py-2 text-left text-sm hover:bg-[#3B3BFC] hover:text-white"
             >
               {options.label}
             </div>

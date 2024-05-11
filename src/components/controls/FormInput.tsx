@@ -23,10 +23,10 @@ const FormInput: FC<IProps> = (props) => {
     ...rest
   } = props;
   return (
-    <div className="text-start w-full ">
+    <div className="w-full text-start ">
       {label && (
         <label
-          className={`block mb-3 font-semibold ${
+          className={`mb-3 block font-semibold ${
             isError ? "text-[#E53E3E]" : "text-gray-500"
           }`}
           htmlFor={rest.id}
@@ -37,11 +37,11 @@ const FormInput: FC<IProps> = (props) => {
       <div
         className={`${classNames({
           "relative pr-6": endIcon,
-        })} border border-gray-300 rounded-lg py-1`}
+        })} rounded-lg border border-gray-300 py-1`}
       >
         <input
           className={classNames(
-            `text-[16px] leading-[28px] px-3 py-1 w-full bg-transparent focus:outline-0`,
+            `w-full bg-transparent px-3 py-1 text-[16px] leading-[28px] focus:outline-0`,
             className,
           )}
           {...rest}
@@ -52,7 +52,7 @@ const FormInput: FC<IProps> = (props) => {
       {!isError && helper ? (
         <p>{helper}</p>
       ) : (
-        <p className="text-[#E53E3E] text-[12px]">{error}</p>
+        <p className="text-[12px] text-[#E53E3E]">{error}</p>
       )}
     </div>
   );
