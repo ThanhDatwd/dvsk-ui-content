@@ -72,7 +72,7 @@ export const ModalConnectWallet = () => {
               }`}
               onClick={() => {
                 setWalletNetwork(
-                  process.env.NEXT_PUBLIC_DEV
+                  process.env.DVSK_NEXT_PUBLIC_DEV
                     ? E_NETWORK_ID.BSC_TESTNET
                     : E_NETWORK_ID.BSC_MAINNET,
                 );

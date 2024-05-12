@@ -6,7 +6,7 @@ import { EMPTY, Empty } from "@web3-react/empty";
 import Web3 from "web3";
 export const SAVE_CURRENT_NETWORK_KEY = "currentNetwork";
 
-const projectId = process.env.NEXT_PUBLIC_WAllETCONNECT_PROJECT_ID as string;
+const projectId = process.env.DVSK_NEXT_PUBLIC_WAllETCONNECT_PROJECT_ID as string;
 
 export const [walletConnectV2EthTestNet, walletHooksEthTestNet] =
   initializeConnector<WalletConnectV2>(

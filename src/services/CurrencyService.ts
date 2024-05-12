@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const ACCESS_TOKEN_COOKIE = "jwt";
 
-const ADDRESS_VPL = process.env.NEXT_PUBLIC_VPL_PAIR_ADDRESS;
+const ADDRESS_VPL = process.env.DVSK_NEXT_PUBLIC_VPL_PAIR_ADDRESS;
 export class CurrencyService {
   public getCurrencyDEX = async () => {
     const t = new Date().getTime();

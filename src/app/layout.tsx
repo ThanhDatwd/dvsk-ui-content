@@ -42,10 +42,10 @@ export default function RootLayout({
   return (
     <>
       <ReCaptchaProvider
-        reCaptchaKey={process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY}
+        reCaptchaKey={process.env.DVSK_NEXT_PUBLIC_CAPTCHA_SITE_KEY}
         useEnterprise={
-          !!process.env.NEXT_PUBLIC_CAPTCHA_ENTERPRISE &&
-          process.env.NEXT_PUBLIC_CAPTCHA_ENTERPRISE === "true"
+          !!process.env.DVSK_NEXT_PUBLIC_CAPTCHA_ENTERPRISE &&
+          process.env.DVSK_NEXT_PUBLIC_CAPTCHA_ENTERPRISE === "true"
         }
       >
         <Head>

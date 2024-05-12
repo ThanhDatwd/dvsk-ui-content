@@ -57,17 +57,17 @@ export const CONTRACT_ADDRESS = {
   },
   DVSK: {
     0: "",
-    [E_NETWORK_ID.ETH_MAINNET]: process.env.NEXT_PUBLIC_DVSK_ADDRESS, // ethereumMainNetId
-    [E_NETWORK_ID.ETH_TESTNET]: process.env.NEXT_PUBLIC_DVSK_ADDRESS, // ethereumTestNetId
-    [E_NETWORK_ID.BSC_MAINNET]: process.env.NEXT_PUBLIC_DVSK_ADDRESS, // binanceMainNetId
-    [E_NETWORK_ID.BSC_TESTNET]: process.env.NEXT_PUBLIC_DVSK_ADDRESS, // binanceTestNetId
+    [E_NETWORK_ID.ETH_MAINNET]: process.env.DVSK_NEXT_PUBLIC_DVSK_ADDRESS, // ethereumMainNetId
+    [E_NETWORK_ID.ETH_TESTNET]: process.env.DVSK_NEXT_PUBLIC_DVSK_ADDRESS, // ethereumTestNetId
+    [E_NETWORK_ID.BSC_MAINNET]: process.env.DVSK_NEXT_PUBLIC_DVSK_ADDRESS, // binanceMainNetId
+    [E_NETWORK_ID.BSC_TESTNET]: process.env.DVSK_NEXT_PUBLIC_DVSK_ADDRESS, // binanceTestNetId
   },
   NFT: {
     0: "",
-    [E_NETWORK_ID.ETH_MAINNET]: process.env.NEXT_PUBLIC_NFT_ADDRESS, // ethereumMainNetId
-    [E_NETWORK_ID.ETH_TESTNET]: process.env.NEXT_PUBLIC_NFT_ADDRESS, // ethereumTestNetId
-    [E_NETWORK_ID.BSC_MAINNET]: process.env.NEXT_PUBLIC_NFT_ADDRESS, // binanceMainNetId
-    [E_NETWORK_ID.BSC_TESTNET]: process.env.NEXT_PUBLIC_NFT_ADDRESS, // binanceTestNetId
+    [E_NETWORK_ID.ETH_MAINNET]: process.env.DVSK_NEXT_PUBLIC_NFT_ADDRESS, // ethereumMainNetId
+    [E_NETWORK_ID.ETH_TESTNET]: process.env.DVSK_NEXT_PUBLIC_NFT_ADDRESS, // ethereumTestNetId
+    [E_NETWORK_ID.BSC_MAINNET]: process.env.DVSK_NEXT_PUBLIC_NFT_ADDRESS, // binanceMainNetId
+    [E_NETWORK_ID.BSC_TESTNET]: process.env.DVSK_NEXT_PUBLIC_NFT_ADDRESS, // binanceTestNetId
   },
 };
 

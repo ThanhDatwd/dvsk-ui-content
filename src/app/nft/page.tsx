@@ -38,7 +38,7 @@ export default function NFT() {
       );
       return {
         rarity: String(dataCharacter?.rate),
-        tokenAddress: process.env.NEXT_PUBLIC_NFT_ADDRESS ?? "",
+        tokenAddress: process.env.DVSK_NEXT_PUBLIC_NFT_ADDRESS ?? "",
         tokenId,
         metadata: {
           ...item[1],
@@ -77,7 +77,7 @@ export default function NFT() {
           rarity: String(
             listCharacter.find((item) => item.tokenId === tokenId)?.rate,
           ),
-          tokenAddress: process.env.NEXT_PUBLIC_NFT_ADDRESS ?? "",
+          tokenAddress: process.env.DVSK_NEXT_PUBLIC_NFT_ADDRESS ?? "",
           tokenId: Number(item[0]),
           metadata: item[1],
         };

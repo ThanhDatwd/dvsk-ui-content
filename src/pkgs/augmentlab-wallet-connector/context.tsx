@@ -50,7 +50,7 @@ export const AugmentlabsWalletProvider = ({
         // }
       }
 
-      return process.env.NEXT_PUBLIC_DEV
+      return process.env.DVSK_NEXT_PUBLIC_DEV
         ? E_NETWORK_ID.BSC_TESTNET
         : E_NETWORK_ID.BSC_MAINNET;
     })(),
